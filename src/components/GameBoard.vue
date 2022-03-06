@@ -39,7 +39,7 @@ const tilesClicked = ref(0);
 
 watch(tilesClicked, (curr, old) => {
   console.log(curr)
-  console.log(old)
+  console.log(old);
 });
 
 </script>
