@@ -24,7 +24,7 @@ const generateTile = (idx) => {
     idx,
   };
 
-  return tileObj
+  return tileObj;
 };
 
 let gameTiles = reactive([]);
