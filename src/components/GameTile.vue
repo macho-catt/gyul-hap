@@ -1,11 +1,13 @@
 <script setup>
-import { reactive } from '@vue/runtime-core';
+import { ref, reactive } from '@vue/runtime-core';
 
 const props = defineProps({
   tile: {
     type: Object,
   },
 });
+
+const emit = defineEmits(['clickedTile']);
 
 const mapAttributes = (parentAttr) => {
   let bgColor = '';
@@ -67,14 +69,27 @@ const mapAttributes = (parentAttr) => {
 };
 
 const tileAttr = reactive(mapAttributes(props.tile));
+tileAttr['opacity'] = 'opacity-100';
 
-const handleClick = () => {};
+const clicked = ref(false)
+
+const handleClick = () => {
+  if (!clicked.value) {
+    tileAttr.opacity = 'opacity-20 lg:hover:opacity-20';
+    emit('clickedTile', 1);
+  } else {
+    tileAttr.opacity = 'opacity-100';
+    emit('clickedTile', -1);
+  }
+
+  clicked.value = !clicked.value;
+};
 </script>
 
 <template>
   <div
     class="h-56 w-56 flex place-content-center lg:hover:opacity-50 hover:cursor-pointer"
-    :class="tileAttr.bgColor"
+    :class="[tileAttr.bgColor, tileAttr.opacity]"
     @click="handleClick"
   >
     <div

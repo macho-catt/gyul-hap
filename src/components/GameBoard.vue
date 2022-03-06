@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from '@vue/runtime-core';
+import { reactive, ref, watch } from '@vue/runtime-core';
 import GameScreen from './GameScreen.vue';
 
 // generate tiles
@@ -34,12 +34,20 @@ for (let i = 0; i < 9; i++) {
   gameTiles.push(generateTile(i));
 }
 // })
+
+const tilesClicked = ref(0);
+
+watch(tilesClicked, (curr, old) => {
+  console.log(curr)
+  console.log(old)
+});
+
 </script>
 
 <template>
   <div class="bg-blue-300 flex flex-col">
     Game board
-    <GameScreen :gameTiles="gameTiles" />
+    <GameScreen :gameTiles="gameTiles" @tilesClicked="(e) => tilesClicked += e"/>
   </div>
 </template>
 
