@@ -24,7 +24,7 @@ const generateTile = (idx) => {
     idx,
   };
 
-  return tileObj;
+  return tileObj
 };
 
 let gameTiles = reactive([]);
@@ -38,8 +38,8 @@ for (let i = 0; i < 9; i++) {
 const tilesClicked = ref(0);
 
 watch(tilesClicked, (curr, old) => {
-  console.log(curr)
-  console.log(old)
+  console.log(curr);
+  console.log(old);
 });
 </script>
 
