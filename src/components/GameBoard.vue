@@ -1,42 +1,29 @@
 <script setup>
-import { reactive, ref, watch, provide } from '@vue/runtime-core';
+import { ref, watch, provide } from '@vue/runtime-core';
 import GameScreen from './GameScreen.vue';
+import { generateTile } from '../lib';
 
-// generate tiles
-const bgColors = ['red', 'blue', 'yellow'];
-const shapes = ['circle', 'square', 'triangle'];
-const shapeColors = ['red', 'blue', 'yellow'];
-
-const getRandomAttr = (attributes) => {
-  // Retrieve a random number from 0 to length of attributes
-  const random = Math.floor(Math.random() * attributes.length);
-  return attributes[random];
-};
-
-const generateTile = (idx) => {
-  const bgColor = getRandomAttr(bgColors);
-  const shape = getRandomAttr(shapes);
-  const shapeColor = getRandomAttr(shapeColors);
-  const tileObj = {
-    bgColor,
-    shape,
-    shapeColor,
-    idx,
-  };
-
-  return tileObj;
-};
-
-let gameTiles = reactive([]);
+const gameTiles = ref([]);
 
 for (let i = 0; i < 9; i++) {
-  gameTiles.push(generateTile(i));
+  gameTiles.value.push(generateTile(i));
 }
 
-const tilesClicked = ref(0);
+const numOfTilesClicked = ref(0);
 const isThreeClicked = ref(false);
+const tilesClicked = ref([]);
 
-watch(tilesClicked, (curr) => {
+const handleEmit = (fromChild) => {
+  numOfTilesClicked.value += fromChild.value;
+
+  if (fromChild.value > 0) tilesClicked.value.push(fromChild.idx);
+  else
+    tilesClicked.value = tilesClicked.value.filter(
+      (tile) => tile !== fromChild.idx
+    );
+};
+
+watch(numOfTilesClicked, (curr) => {
   if (curr === 3) isThreeClicked.value = true;
   else isThreeClicked.value = false;
 });
@@ -47,10 +34,7 @@ provide('isThreeClicked', isThreeClicked);
 <template>
   <div class="bg-blue-300 flex flex-col">
     Game board
-    <GameScreen
-      :gameTiles="gameTiles"
-      @tilesClicked="(e) => (tilesClicked += e)"
-    />
+    <GameScreen :gameTiles="gameTiles" @numOfTilesClicked="handleEmit" />
   </div>
 </template>
 

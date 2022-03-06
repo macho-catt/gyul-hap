@@ -7,7 +7,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['tilesClicked']);
+const emit = defineEmits(['numOfTilesClicked']);
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const emit = defineEmits(['tilesClicked']);
       v-for="tile in props.gameTiles"
       :key="tile.idx"
       :tile="tile"
-      @clickedTile="(e) => emit('tilesClicked', e)"
+      @clickedTile="(e) => emit('numOfTilesClicked', e)"
     />
   </div>
 </template>
