@@ -14,7 +14,7 @@ const mapAttributes = (parentAttr) => {
   let shape = '';
   let shapeColor = '';
   // special case for assigning color to triangle
-  let triangleColor = '';
+  let triangleColor = ''
 
   switch (parentAttr.bgColor) {
     case 'red':
