@@ -13,8 +13,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx}": "npm run eslint",
-    "*.{js,jsx,json,css,md,mdx}": "npm run prettier"
+    "*.{js,jsx,ts,tsx,vue}": "npm run eslint",
+    "*.{js,jsx,ts,tsx,vue,json,css,md,mdx}": "npm run prettier"
   },
   "dependencies": {
     "vue": "^3.2.31"
