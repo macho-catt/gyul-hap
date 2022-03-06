@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from '@vue/runtime-core';
+import { ref, reactive, inject } from '@vue/runtime-core';
 
 const props = defineProps({
   tile: {
@@ -8,6 +8,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['clickedTile']);
+const isThreeClicked = inject('isThreeClicked');
 
 const mapAttributes = (parentAttr) => {
   let bgColor = '';
@@ -74,15 +75,16 @@ tileAttr['opacity'] = 'opacity-100';
 const clicked = ref(false);
 
 const handleClick = () => {
-  if (!clicked.value) {
+  // Ensures the max number of clicked tiles is three
+  if (!clicked.value && !isThreeClicked.value) {
     tileAttr.opacity = 'opacity-20 lg:hover:opacity-20';
     emit('clickedTile', 1);
-  } else {
+    clicked.value = !clicked.value;
+  } else if (clicked.value) {
     tileAttr.opacity = 'opacity-100';
     emit('clickedTile', -1);
+    clicked.value = !clicked.value;
   }
-
-  clicked.value = !clicked.value;
 };
 </script>
 

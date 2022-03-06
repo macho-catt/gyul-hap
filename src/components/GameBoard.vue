@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, watch } from '@vue/runtime-core';
+import { reactive, ref, watch, provide } from '@vue/runtime-core';
 import GameScreen from './GameScreen.vue';
 
 // generate tiles
@@ -29,18 +29,19 @@ const generateTile = (idx) => {
 
 let gameTiles = reactive([]);
 
-// onMounted(() => {
 for (let i = 0; i < 9; i++) {
   gameTiles.push(generateTile(i));
 }
-// })
 
 const tilesClicked = ref(0);
+const isThreeClicked = ref(false);
 
-watch(tilesClicked, (curr, old) => {
-  console.log(curr);
-  console.log(old);
+watch(tilesClicked, (curr) => {
+  if (curr === 3) isThreeClicked.value = true;
+  else isThreeClicked.value = false;
 });
+
+provide('isThreeClicked', isThreeClicked);
 </script>
 
 <template>
