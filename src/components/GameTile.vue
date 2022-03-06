@@ -12,7 +12,7 @@ const emit = defineEmits(['clickedTile']);
 const mapAttributes = (parentAttr) => {
   let bgColor = '';
   let shape = '';
-  let shapeColor = '';
+  let shapeColor = ''
   // special case for assigning color to triangle
   let triangleColor = ''
 
