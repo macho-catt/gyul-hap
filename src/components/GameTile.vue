@@ -12,9 +12,9 @@ const emit = defineEmits(['clickedTile']);
 const mapAttributes = (parentAttr) => {
   let bgColor = '';
   let shape = '';
-  let shapeColor = ''
+  let shapeColor = '';
   // special case for assigning color to triangle
-  let triangleColor = ''
+  let triangleColor = '';
 
   switch (parentAttr.bgColor) {
     case 'red':
@@ -71,7 +71,7 @@ const mapAttributes = (parentAttr) => {
 const tileAttr = reactive(mapAttributes(props.tile));
 tileAttr['opacity'] = 'opacity-100';
 
-const clicked = ref(false)
+const clicked = ref(false);
 
 const handleClick = () => {
   if (!clicked.value) {

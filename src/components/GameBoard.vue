@@ -39,15 +39,17 @@ const tilesClicked = ref(0);
 
 watch(tilesClicked, (curr, old) => {
   console.log(curr)
-  console.log(old);
+  console.log(old)
 });
-
 </script>
 
 <template>
   <div class="bg-blue-300 flex flex-col">
     Game board
-    <GameScreen :gameTiles="gameTiles" @tilesClicked="(e) => tilesClicked += e"/>
+    <GameScreen
+      :gameTiles="gameTiles"
+      @tilesClicked="(e) => (tilesClicked += e)"
+    />
   </div>
 </template>
 
