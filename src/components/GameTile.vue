@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive, inject, watch } from '@vue/runtime-core';
-import { mapAttributes } from '../lib';
+import { mapAttributes } from '../lib/tilesGeneration';
 
 const props = defineProps({
   tile: {
@@ -56,7 +56,7 @@ watch(clearTiles, (curr) => {
       class="place-self-center"
       :class="[tileAttr.shapeColor, tileAttr.shape]"
     />
-    <h1 class="place-self-center text-lg">{{ props.tile.idx }}</h1>
+    <h1 class="place-self-center lg:text-lg">{{ props.tile.idx }}</h1>
   </div>
 </template>
 

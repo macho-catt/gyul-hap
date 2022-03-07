@@ -1,7 +1,12 @@
 <script setup>
 import { ref, watch, provide, reactive } from '@vue/runtime-core';
 import { GameScreen, GameButton } from './';
-import { generateTile, calculateMatches, numToString } from '../lib';
+import { generateTile } from '../lib/tilesGeneration';
+import {
+  calculateMatches,
+  stringToNum,
+  numToString,
+} from '../lib/winCondition';
 
 const gameTiles = ref([]);
 
@@ -10,11 +15,12 @@ for (let i = 0; i < 9; i++) {
 }
 
 const matches = reactive(new Map(calculateMatches(gameTiles.value)));
-// const answerCount = ref(matches.size);
-// console.log(matches)
-// for (let [key, value] of matches) {
-//   console.log(stringToNum(key))
-// }
+const answerCount = ref(matches.size);
+console.log(matches);
+for (let [key, value] of matches) {
+  console.log(stringToNum(key));
+  console.log(value);
+}
 
 const numOfTilesClicked = ref(0);
 const isThreeClicked = ref(false);
@@ -44,9 +50,15 @@ const onSubmitClick = () => {
   if (numOfTilesClicked.value === 3) {
     console.log(`submitted ${tilesClicked.value}`);
     const stringRep = numToString(...tilesClicked.value);
-    console.log(stringRep);
+
     if (matches.has(stringRep)) {
-      console.log('correct!');
+      if (matches.get(stringRep) === 1) {
+        console.log('correct!');
+        matches.set(stringRep, 0);
+        answerCount.value -= 1;
+      } else {
+        console.log('already answered!');
+      }
     } else {
       console.log('wrong!');
     }
@@ -63,6 +75,17 @@ const onSubmitClick = () => {
 
 const onNoMatchesClick = () => {
   console.log('clicked no matches');
+
+  if (answerCount.value === 0) {
+    console.log('Correct, there are no more matches!');
+  } else {
+    console.log('There are still some matches!');
+    // clear values after submitting
+    tilesClicked.value = [];
+    numOfTilesClicked.value = 0;
+    isThreeClicked.value = false;
+    clearTiles.value = true;
+  }
 };
 </script>
 
