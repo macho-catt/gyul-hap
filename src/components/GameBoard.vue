@@ -10,9 +10,12 @@ const { numOfTilesClicked, isThreeClicked, tilesClicked, handleEmit } =
 
 provide('isThreeClicked', isThreeClicked);
 
-// Reactive state to signal to clear all selected tiles for child comp
+// State to signal to clear all selected tiles for child comp
 const clearTiles = ref(false);
 provide('clearTiles', clearTiles);
+
+// State to pass a correct or wrong answer submission to screen
+const answerResult = ref('');
 
 const onSubmitClick = () => {
   if (numOfTilesClicked.value === 3) {
@@ -21,14 +24,14 @@ const onSubmitClick = () => {
 
     if (matches.has(stringRep)) {
       if (matches.get(stringRep) === 1) {
-        console.log('correct!');
+        answerResult.value = 'Correct';
         matches.set(stringRep, 0);
         answerCount.value -= 1;
       } else {
-        console.log('already answered!');
+        answerResult.value = 'Already Answered';
       }
     } else {
-      console.log('wrong!');
+      answerResult.value = 'Wrong';
     }
 
     // clear values after submitting
@@ -37,7 +40,7 @@ const onSubmitClick = () => {
     isThreeClicked.value = false;
     clearTiles.value = true;
   } else {
-    console.log('Need 3 tiles to be selected');
+    answerResult.value = 'Need Three Selected Tiles';
   }
 };
 
@@ -45,9 +48,9 @@ const onNoMatchesClick = () => {
   console.log('clicked no matches');
 
   if (answerCount.value === 0) {
-    console.log('Correct, there are no more matches!');
+    answerResult.value = 'Correct';
   } else {
-    console.log('There are still some matches!');
+    answerResult.value = 'Matches Still Remain';
     // clear values after submitting
     tilesClicked.value = [];
     numOfTilesClicked.value = 0;
@@ -60,7 +63,11 @@ const onNoMatchesClick = () => {
 <template>
   <div class="bg-blue-300 flex flex-col gap-2">
     Game board
-    <GameScreen :gameTiles="gameTiles" @numOfTilesClicked="handleEmit" />
+    <GameScreen
+      :gameTiles="gameTiles"
+      @numOfTilesClicked="handleEmit"
+      :answerResult="answerResult"
+    />
     <div class="flex flex-row place-self-center gap-2">
       <GameButton name="Submit Match" @click="onSubmitClick" />
       <GameButton name="No More Matches" @click="onNoMatchesClick" />
