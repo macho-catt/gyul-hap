@@ -8,13 +8,14 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['clickedTile']);
-const isThreeClicked = inject('isThreeClicked');
-
+// Assign attributes to the tile
 const tileAttr = reactive(mapAttributes(props.tile));
 tileAttr['opacity'] = 'opacity-100';
 
+// Reactive state if a tile is clicked
 const clicked = ref(false);
+const isThreeClicked = inject('isThreeClicked');
+const emit = defineEmits(['clickedTile']);
 
 const handleClick = () => {
   // Ensures the max number of clicked tiles is three
@@ -35,6 +36,7 @@ const handleClick = () => {
   }
 };
 
+// If clearTiles becomes true, clear selected tile
 const clearTiles = inject('clearTiles');
 
 watch(clearTiles, (curr) => {

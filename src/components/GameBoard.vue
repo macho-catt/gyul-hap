@@ -1,48 +1,16 @@
 <script setup>
-import { ref, watch, provide, reactive } from '@vue/runtime-core';
+import { ref, provide } from '@vue/runtime-core';
 import { GameScreen, GameButton } from './';
-import { generateTile } from '../lib/tilesGeneration';
-import {
-  calculateMatches,
-  stringToNum,
-  numToString,
-} from '../lib/winCondition';
+import { useTilesClicked, useGenerateGameTiles } from '../hooks';
+import { numToString } from '../lib/winCondition';
 
-const gameTiles = ref([]);
-
-for (let i = 0; i < 9; i++) {
-  gameTiles.value.push(generateTile(i));
-}
-
-const matches = reactive(new Map(calculateMatches(gameTiles.value)));
-const answerCount = ref(matches.size);
-console.log(matches);
-for (let [key, value] of matches) {
-  console.log(stringToNum(key));
-  console.log(value);
-}
-
-const numOfTilesClicked = ref(0);
-const isThreeClicked = ref(false);
-const tilesClicked = ref([]);
-
-const handleEmit = (fromChild) => {
-  numOfTilesClicked.value += fromChild.value;
-
-  if (fromChild.value > 0) tilesClicked.value.push(fromChild.idx);
-  else
-    tilesClicked.value = tilesClicked.value.filter(
-      (tile) => tile !== fromChild.idx
-    );
-};
-
-watch(numOfTilesClicked, (curr) => {
-  if (curr === 3) isThreeClicked.value = true;
-  else isThreeClicked.value = false;
-});
+const { gameTiles, matches, answerCount } = useGenerateGameTiles();
+const { numOfTilesClicked, isThreeClicked, tilesClicked, handleEmit } =
+  useTilesClicked();
 
 provide('isThreeClicked', isThreeClicked);
 
+// Reactive state to signal to clear all selected tiles for child comp
 const clearTiles = ref(false);
 provide('clearTiles', clearTiles);
 
