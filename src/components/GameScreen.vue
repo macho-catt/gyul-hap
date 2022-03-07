@@ -1,5 +1,5 @@
 <script setup>
-import GameTile from './GameTile.vue';
+import { GameTile } from './';
 
 const props = defineProps({
   gameTiles: {

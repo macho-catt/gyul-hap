@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, inject } from '@vue/runtime-core';
+import { ref, reactive, inject, watch } from '@vue/runtime-core';
 import { mapAttributes } from '../lib';
 
 const props = defineProps({
@@ -34,11 +34,21 @@ const handleClick = () => {
     clicked.value = !clicked.value;
   }
 };
+
+const clearTiles = inject('clearTiles');
+
+watch(clearTiles, (curr) => {
+  if (curr) {
+    clicked.value = false;
+    tileAttr.opacity = 'opacity-100';
+    setTimeout(() => (clearTiles.value = false), 100);
+  }
+});
 </script>
 
 <template>
   <div
-    class="h-56 w-56 flex flex-col place-content-center lg:hover:opacity-50 hover:cursor-pointer"
+    class="flex flex-col place-content-center lg:h-56 lg:w-56 lg:hover:opacity-50 lg:hover:cursor-pointer"
     :class="[tileAttr.bgColor, tileAttr.opacity]"
     @click="handleClick"
   >
@@ -46,7 +56,7 @@ const handleClick = () => {
       class="place-self-center"
       :class="[tileAttr.shapeColor, tileAttr.shape]"
     />
-    <h1 class="fixed place-self-center text-lg">{{ props.tile.idx }}</h1>
+    <h1 class="place-self-center text-lg">{{ props.tile.idx }}</h1>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <script setup>
-import GameBoard from './components/GameBoard.vue';
+import { GameBoard } from './components';
 </script>
 
 <template>
