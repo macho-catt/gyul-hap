@@ -16,6 +16,7 @@ provide('clearTiles', clearTiles);
 
 // State to pass a correct or wrong answer submission to screen
 const answerResult = ref('');
+provide('answerResult', answerResult);
 
 const onSubmitClick = () => {
   if (numOfTilesClicked.value === 3) {
@@ -24,14 +25,14 @@ const onSubmitClick = () => {
 
     if (matches.has(stringRep)) {
       if (matches.get(stringRep) === 1) {
-        answerResult.value = 'Correct';
+        answerResult.value = 'Correct!';
         matches.set(stringRep, 0);
         answerCount.value -= 1;
       } else {
-        answerResult.value = 'Already Answered';
+        answerResult.value = 'You already answered this match!';
       }
     } else {
-      answerResult.value = 'Wrong';
+      answerResult.value = 'Wrong!';
     }
 
     // clear values after submitting
@@ -40,17 +41,15 @@ const onSubmitClick = () => {
     isThreeClicked.value = false;
     clearTiles.value = true;
   } else {
-    answerResult.value = 'Need Three Selected Tiles';
+    answerResult.value = 'You need to select three tiles to submit a match.';
   }
 };
 
 const onNoMatchesClick = () => {
-  console.log('clicked no matches');
-
   if (answerCount.value === 0) {
-    answerResult.value = 'Correct';
+    answerResult.value = 'Correct! There are no more matches.';
   } else {
-    answerResult.value = 'Matches Still Remain';
+    answerResult.value = 'Wrong! Matches still remain.';
     // clear values after submitting
     tilesClicked.value = [];
     numOfTilesClicked.value = 0;
@@ -61,13 +60,8 @@ const onNoMatchesClick = () => {
 </script>
 
 <template>
-  <div class="bg-blue-300 flex flex-col gap-2">
-    Game board
-    <GameScreen
-      :gameTiles="gameTiles"
-      @numOfTilesClicked="handleEmit"
-      :answerResult="answerResult"
-    />
+  <div class="flex flex-col gap-2">
+    <GameScreen :gameTiles="gameTiles" @numOfTilesClicked="handleEmit" />
     <div class="flex flex-row place-self-center gap-2">
       <GameButton name="Submit Match" @click="onSubmitClick" />
       <GameButton name="No More Matches" @click="onNoMatchesClick" />

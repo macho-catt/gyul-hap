@@ -17,6 +17,7 @@
     "*.{js,jsx,ts,tsx,vue,json,css,md,mdx}": "npm run prettier"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.5.0",
     "vue": "^3.2.31"
   },
   "devDependencies": {
