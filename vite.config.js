@@ -12,4 +12,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  css: {
+    modules: {
+      scopeBehaviour: 'local',
+      localsConvention: 'camelCase',
+    },
+  },
 });

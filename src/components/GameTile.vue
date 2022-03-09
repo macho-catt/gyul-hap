@@ -50,16 +50,26 @@ watch(clearTiles, (curr) => {
 
 <template>
   <div
-    class="flex flex-col place-content-center lg:h-56 lg:w-56 lg:hover:opacity-50 lg:hover:cursor-pointer"
+    class="div-tile"
     :class="[tileAttr.bgColor, tileAttr.opacity]"
     @click="handleClick"
   >
-    <div
-      class="place-self-center"
-      :class="[tileAttr.shapeColor, tileAttr.shape]"
-    />
-    <h1 class="place-self-center lg:text-lg">{{ props.tile.idx }}</h1>
+    <div class="div-shape" :class="[tileAttr.shapeColor, tileAttr.shape]" />
+    <h1 class="h1">{{ props.tile.idx }}</h1>
+    <!-- <h1 class="color">{{ props.tile.idx }}</h1> -->
   </div>
 </template>
 
-<style></style>
+<style lang="postcss">
+.div-tile {
+  @apply flex flex-col place-content-center lg:h-56 lg:w-56 lg:hover:opacity-50 lg:hover:cursor-pointer;
+}
+
+.div-shape {
+  @apply place-self-center;
+}
+
+.h1 {
+  @apply place-self-center lg:text-lg;
+}
+</style>
