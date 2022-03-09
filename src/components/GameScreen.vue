@@ -66,7 +66,7 @@ const closeModal = () => {
         <button
           @click="closeModal"
           type="button"
-          class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+          class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         >
           Close
         </button>
@@ -77,7 +77,7 @@ const closeModal = () => {
 
 <style lang="postcss" scoped>
 .div-screen {
-  @apply bg-slate-800 place-self-center w-fit grid grid-cols-3 p-8 gap-8;
+  @apply grid w-fit grid-cols-3 gap-8 place-self-center bg-slate-800 p-8;
 }
 
 .dialog-overlay {
@@ -85,6 +85,6 @@ const closeModal = () => {
 }
 
 .dialog {
-  @apply fixed bottom-1/2 translate-x-1/2 translate-y-1/2 right-1/2 z-10 overflow-y-auto text-center flex flex-col bg-white lg:h-24 lg:w-52;
+  @apply fixed bottom-1/2 right-1/2 z-10 flex translate-x-1/2 translate-y-1/2 flex-col overflow-y-auto bg-white text-center lg:h-24 lg:w-52;
 }
 </style>

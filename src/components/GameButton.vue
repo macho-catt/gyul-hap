@@ -17,6 +17,6 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
 .button {
-  @apply h-16 w-16 bg-slate-800 text-white place-self-center;
+  @apply h-16 w-16 place-self-center bg-slate-800 text-white;
 }
 </style>

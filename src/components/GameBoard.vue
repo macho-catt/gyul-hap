@@ -75,6 +75,6 @@ const onNoMatchesClick = () => {
 }
 
 .button-container {
-  @apply flex flex-row place-self-center gap-2;
+  @apply flex flex-row gap-2 place-self-center;
 }
 </style>
