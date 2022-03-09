@@ -69,7 +69,7 @@ const mapAttributes = (parentAttr) => {
       shape = `w-0 h-0 border-x-[40px] border-x-transparent border-b-[80px] ${triangleColor} bg-inherit`;
       break;
     case 'square':
-      shape = 'w-20 h-20';
+      shape = 'lg:w-20 h-20';
       break;
     default:
       break;
