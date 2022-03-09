@@ -1,8 +1,8 @@
 <script setup>
 import { ref, provide } from '@vue/runtime-core';
-import { GameScreen, GameButton } from './';
-import { useTilesClicked, useGenerateGameTiles } from '../hooks';
-import { numToString } from '../lib/winCondition';
+import { GameScreen, GameButton } from '@/components';
+import { useTilesClicked, useGenerateGameTiles } from '@/hooks';
+import { numToString } from '@/lib/winCondition';
 
 const { gameTiles, matches, answerCount } = useGenerateGameTiles();
 const { numOfTilesClicked, isThreeClicked, tilesClicked, handleEmit } =
@@ -63,8 +63,12 @@ const onNoMatchesClick = () => {
   <div class="board-container">
     <GameScreen :gameTiles="gameTiles" @numOfTilesClicked="handleEmit" />
     <div class="button-container">
-      <GameButton name="Submit Match" @click="onSubmitClick" />
-      <GameButton name="No More Matches" @click="onNoMatchesClick" />
+      <GameButton name="Submit Match" @click="onSubmitClick" variant="submit" />
+      <GameButton
+        name="No More Matches"
+        @click="onNoMatchesClick"
+        variant="submit"
+      />
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, inject, watch } from '@vue/runtime-core';
-import { GameTile } from './';
+import { GameTile } from '@/components';
 import { Dialog, DialogOverlay, DialogTitle } from '@headlessui/vue';
 
 const props = defineProps({

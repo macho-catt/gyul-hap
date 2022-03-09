@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive, inject, watch } from '@vue/runtime-core';
-import { mapAttributes } from '../lib/tilesGeneration';
+import { mapAttributes } from '@/lib/tilesGeneration';
 
 const props = defineProps({
   tile: {
