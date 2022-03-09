@@ -18,4 +18,8 @@ export default defineConfig({
       localsConvention: 'camelCase',
     },
   },
+  test: {
+    globals: true,
+    setupFiles: 'src/test.setup.js',
+  },
 });

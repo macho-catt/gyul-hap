@@ -16,5 +16,10 @@ module.exports = {
       files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}'],
       extends: ['plugin:cypress/recommended'],
     },
+    {
+      files: ['__tests__/**/*.{js,ts,jsx,tsx}'],
+      extends: ['plugin:jest-dom/recommended'],
+      plugins: ['jest-dom'],
+    }
   ],
 };
