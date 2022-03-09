@@ -51,7 +51,7 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="bg-slate-800 place-self-center w-fit grid grid-cols-3 p-8 gap-8">
+  <div class="div-screen">
     <GameTile
       v-for="tile in props.gameTiles"
       :key="tile.idx"
@@ -60,10 +60,8 @@ const closeModal = () => {
     />
 
     <Dialog as="div" :open="showResult" @close="closeModal">
-      <DialogOverlay class="fixed inset-0 bg-black opacity-30" />
-      <div
-        class="fixed bottom-1/2 translate-x-1/2 translate-y-1/2 right-1/2 z-10 overflow-y-auto text-center flex flex-col bg-white lg:h-24 lg:w-54"
-      >
+      <DialogOverlay class="dialog-overlay" />
+      <div class="dialog">
         <DialogTitle>{{ modalTitle }}</DialogTitle>
         <button
           @click="closeModal"
@@ -77,4 +75,16 @@ const closeModal = () => {
   </div>
 </template>
 
-<style></style>
+<style lang="postcss" scoped>
+.div-screen {
+  @apply bg-slate-800 place-self-center w-fit grid grid-cols-3 p-8 gap-8;
+}
+
+.dialog-overlay {
+  @apply fixed inset-0 bg-black opacity-30;
+}
+
+.dialog {
+  @apply fixed bottom-1/2 translate-x-1/2 translate-y-1/2 right-1/2 z-10 overflow-y-auto text-center flex flex-col bg-white lg:h-24 lg:w-52;
+}
+</style>

@@ -60,13 +60,21 @@ const onNoMatchesClick = () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="board-container">
     <GameScreen :gameTiles="gameTiles" @numOfTilesClicked="handleEmit" />
-    <div class="flex flex-row place-self-center gap-2">
+    <div class="button-container">
       <GameButton name="Submit Match" @click="onSubmitClick" />
       <GameButton name="No More Matches" @click="onNoMatchesClick" />
     </div>
   </div>
 </template>
 
-<style></style>
+<style lang="postcss">
+.board-container {
+  @apply flex flex-col gap-2;
+}
+
+.button-container {
+  @apply flex flex-row place-self-center gap-2;
+}
+</style>

@@ -10,13 +10,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <button
-    class="h-16 w-16 bg-slate-800 text-white place-self-center"
-    type="button"
-    @click="props.click"
-  >
+  <button class="button" type="button" @click="props.click">
     {{ props.name }}
   </button>
 </template>
 
-<style></style>
+<style lang="postcss" scoped>
+.button {
+  @apply h-16 w-16 bg-slate-800 text-white place-self-center;
+}
+</style>
