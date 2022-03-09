@@ -1,6 +1,6 @@
 <script setup>
 import { ref, inject, watch } from '@vue/runtime-core';
-import { GameTile } from '@/components';
+import { GameTile, GameButton } from '@/components';
 import { Dialog, DialogOverlay, DialogTitle } from '@headlessui/vue';
 
 const props = defineProps({
@@ -63,13 +63,8 @@ const closeModal = () => {
       <DialogOverlay class="dialog-overlay" />
       <div class="dialog">
         <DialogTitle>{{ modalTitle }}</DialogTitle>
-        <button
-          @click="closeModal"
-          type="button"
-          class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-        >
-          Close
-        </button>
+
+        <GameButton name="OK" @click="closeModal" variant="modal" />
       </div>
     </Dialog>
   </div>

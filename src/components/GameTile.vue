@@ -56,7 +56,6 @@ watch(clearTiles, (curr) => {
   >
     <div class="div-shape" :class="[tileAttr.shapeColor, tileAttr.shape]" />
     <h1 class="h1">{{ props.tile.idx }}</h1>
-    <!-- <h1 class="color">{{ props.tile.idx }}</h1> -->
   </div>
 </template>
 
