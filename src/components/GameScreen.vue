@@ -72,14 +72,14 @@ const closeModal = () => {
 
 <style lang="postcss" scoped>
 .div-screen {
-  @apply grid w-fit grid-cols-3 gap-8 place-self-center bg-slate-800 p-8;
+  @apply grid w-fit grid-cols-3 gap-8 place-self-center rounded-md bg-slate-800 p-8;
 }
 
 .dialog-overlay {
-  @apply fixed inset-0 bg-black opacity-30;
+  @apply fixed inset-0 bg-black opacity-30 blur-2xl;
 }
 
 .dialog {
-  @apply fixed bottom-1/2 right-1/2 z-10 flex translate-x-1/2 translate-y-1/2 flex-col overflow-y-auto bg-white text-center lg:h-24 lg:w-52;
+  @apply fixed bottom-1/2 right-1/2 z-10 flex translate-x-1/2 translate-y-1/2 flex-col place-content-center gap-2 rounded-md border border-transparent bg-white p-4 text-center lg:w-60;
 }
 </style>
