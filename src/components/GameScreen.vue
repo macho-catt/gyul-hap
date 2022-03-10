@@ -18,26 +18,6 @@ const modalTitle = ref('');
 const emit = defineEmits(['numOfTilesClicked']);
 
 watch(answerResult, (curr) => {
-  // switch (curr) {
-  //   case 'Correct':
-  //     console.log('correct!');
-  //     modalTitle.ref = curr;
-  //     break;
-  //   case 'Wrong':
-  //     console.log('wrong!');
-  //     break;
-  //   case 'Already Answered':
-  //     console.log('already answered!');
-  //     break;
-  //   case 'Matches Still Remain':
-  //     console.log('There are still some matches!');
-  //     break;
-  //   case 'Need Three Selected Tiles':
-  //     console.log('Need 3 tiles to be selected');
-  //     break;
-  //   default:
-  //     break;
-  // }
   if (curr.length > 0) {
     modalTitle.value = curr;
     showResult.value = true;
