@@ -1,48 +1,53 @@
-# gyul-hap
+<h1 align="center">
+  Gyul Hap! Match 3
+</h1>
 
-This template should help get you started developing with Vue 3 in Vite.
+Gyul Hap
 
-## Recommended IDE Setup
+## Tech
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+- Vue.js
+- Tailwind CSS
+- Headless UI
+- ESLint
+- Prettier
+- Husky
+- Lint-Staged
+- Vitest
+- Cypress
+- Vite
 
-## Customize configuration
+## Installation and Setup
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clone the project
+```
+git clone https://github.com/macho-catt/gyul-hap.git
+```
 
-## Project Setup
-
-```sh
+2. Install dependencies
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+3. Run locally
+```
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Todo
 
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- [ ] Add scoring system
+- [ ] Add help screen modal
+- [ ] Homepage to select play, help screen, or 1v1 (future feature)
+- [ ] Animations
+- [ ] Host somewhere
+- [ ] Finish unit testing
+- [ ] Add e2e testing with cypress
+- [ ] Automatic testing on push/pull with Github Actions
+- [ ] Backend
+    - [ ] Login for additional features like (see below)
+    - [ ] Personal best
+    - [ ] Match history
+    - [ ] Global high score
+- [ ] 1v1 functionality using web sockets
+- [ ] Finish Readme
