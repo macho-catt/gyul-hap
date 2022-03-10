@@ -4,7 +4,7 @@
 
 Gyul! Hap! is based on a game from the Korean Show [The Genius](https://en.wikipedia.org/wiki/The_Genius_(TV_series)).
 
-A Gyul! Hap! puzzle consists of a grid of nine tiles, where each tile is defined by a color, shape, and background colour. A "Hap" is a set of three tiles where each property (color, shape, background colour) is either all the same or all different between the three tiles. For example, a red circle on a blue background, a blue circle on a blue background, and a yellow circle on a blue background form a "Hap" because the colors are all different, and the shapes and backgrounds are all the same.
+A Gyul! Hap! puzzle consists of a grid of nine tiles, where each tile is defined by a color, shape, and background color. A "Hap" is a set of three tiles where each property (color, shape, background color) is either all the same or all different between the three tiles. For example, a red triangle on a blue background, a blue triangle on a blue background, and a yellow triangle on a blue background form a "Hap" because the colors are all different, and the shapes and background colors are all the same.
 
 ## Tech
 
