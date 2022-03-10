@@ -63,13 +63,13 @@ const mapAttributes = (parentAttr) => {
 
   switch (parentAttr.shape) {
     case 'circle':
-      shape = 'w-20 h-20 rounded-full';
+      shape = 'w-12 h-12 lg:w-20 lg:h-20 rounded-full';
       break;
     case 'triangle':
-      shape = `w-0 h-0 border-x-[40px] border-x-transparent border-b-[80px] ${triangleColor} bg-inherit`;
+      shape = `${triangleColor} w-12 h-12 border-x-transparent bg-inherit border-x-[24px] border-b-[48px] lg:w-0 lg:h-0 lg:border-x-[40px] lg:border-b-[80px]`;
       break;
     case 'square':
-      shape = 'w-20 h-20';
+      shape = 'w-12 h-12 lg:w-20 lg:h-20';
       break;
     default:
       break;

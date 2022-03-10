@@ -6,6 +6,6 @@
 
 <style lang="postcss" scoped>
 .header {
-  @apply place-self-center text-center text-4xl text-slate-100;
+  @apply place-self-center text-center text-2xl text-slate-100 lg:text-4xl;
 }
 </style>

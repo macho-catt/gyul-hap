@@ -24,10 +24,10 @@ const buttonClass = ref(props.variant);
 
 <style lang="postcss" scoped>
 .submit {
-  @apply h-20 w-20 place-self-center rounded-md border border-transparent bg-slate-100 text-slate-900 hover:bg-slate-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2;
+  @apply h-16 w-16 place-self-center rounded-md border border-transparent bg-slate-100 text-sm text-slate-900 hover:bg-slate-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 lg:h-20 lg:w-20 lg:text-base;
 }
 
 .modal {
-  @apply inline-flex h-10 w-10 justify-center place-self-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  @apply inline-flex justify-center place-self-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 lg:h-10 lg:w-10;
 }
 </style>
