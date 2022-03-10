@@ -7,10 +7,16 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'eslint:recommended',
     '@vue/eslint-config-prettier',
+    'prettier'
   ],
   env: {
     'vue/setup-compiler-macros': true,
+    "browser": true,
+    "es2021": true
   },
+  plugins: [
+    'prettier'
+  ],
   overrides: [
     {
       files: ['cypress/integration/**.spec.{js,ts,jsx,tsx}'],
@@ -19,7 +25,7 @@ module.exports = {
     {
       files: ['__tests__/**/*.{js,ts,jsx,tsx}'],
       extends: ['plugin:jest-dom/recommended'],
-      plugins: ['jest-dom'],
+      plugins: ['prettier', 'jest-dom'],
       env: {
         jest: true,
       },
