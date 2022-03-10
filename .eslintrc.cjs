@@ -22,7 +22,7 @@ module.exports = {
     },
     {
       files: ['__tests__/**/*.{js,ts,jsx,tsx}'],
-      extends: ['plugin:jest-dom/recommended'],
+      extends: ['plugin:jest-dom/recommended', 'plugin:vue/vue3-essential', 'eslint:recommended', '@vue/eslint-config-prettier', 'prettier'],
       plugins: ['prettier', 'jest-dom'],
       env: {
         jest: true,
