@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.5.0",
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue-meta": "^2.4.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
