@@ -20,6 +20,7 @@ A "Gyul" can be called when all matches have been found (or in a rare instance, 
 - Vitest
 - Cypress
 - Vite
+- Vercel
 
 ## Installation and Setup
 
@@ -44,7 +45,6 @@ npm run dev
 - [ ] Add help screen modal
 - [ ] Homepage to select play, help screen, or 1v1 (future feature)
 - [ ] Animations
-- [ ] Host somewhere
 - [ ] Finish unit testing
 - [ ] Add e2e testing with cypress
 - [ ] Automatic testing on push/pull with Github Actions
