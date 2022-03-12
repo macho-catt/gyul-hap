@@ -11,6 +11,9 @@ const props = defineProps({
   variant: {
     type: String,
   },
+  canDisable: {
+    type: Boolean,
+  },
 });
 
 const buttonClass = ref(props.variant);
@@ -19,7 +22,7 @@ const gameEnd = inject('gameEnd');
 const disableButton = ref('');
 
 watch(gameEnd, (curr) => {
-  if (curr) disableButton.value = 'cursor-not-allowed';
+  if (curr && props.canDisable) disableButton.value = 'cursor-not-allowed';
 });
 </script>
 

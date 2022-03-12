@@ -42,11 +42,6 @@ const endScreen = ref(false);
 watch([gameEnd, showAnsModal], ([currA, currB]) => {
   if (currA && !currB) endScreen.value = true;
 });
-
-const handlePlayAgain = () => {
-  // change to vue router re-render when that is setup
-  window.location.reload();
-};
 </script>
 
 <template>
@@ -65,13 +60,18 @@ const handlePlayAgain = () => {
           <StatusSVG :correct="svgValue" />
           <DialogTitle>{{ modalTitle }}</DialogTitle>
         </div>
-        <GameButton name="OK" @click="closeModal" variant="modal" />
+        <GameButton
+          name="OK"
+          @click="closeModal"
+          variant="modal"
+          v-bind:canDisable="false"
+        />
       </div>
     </Dialog>
   </div>
+
   <div v-if="endScreen" class="gameOver">
     <h2 class="gameOver-h2">Game Over</h2>
-    <GameButton name="Play Again" @click="handlePlayAgain" variant="submit" />
   </div>
 </template>
 

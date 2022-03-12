@@ -70,6 +70,11 @@ const onNoMatchesClick = () => {
     clearTiles.value = true;
   }
 };
+
+const handlePlayAgain = () => {
+  // change to vue router re-render when that is setup
+  window.location.reload();
+};
 </script>
 
 <template>
@@ -82,11 +87,20 @@ const onNoMatchesClick = () => {
           name="Submit Match"
           @click="onSubmitClick"
           variant="submit"
+          v-bind:canDisable="true"
         />
         <GameButton
           name="No More Matches"
           @click="onNoMatchesClick"
           variant="submit"
+          v-bind:canDisable="true"
+        />
+        <GameButton
+          v-if="gameEnd"
+          name="Play Again"
+          @click="handlePlayAgain"
+          variant="submit"
+          v-bind:canDisable="false"
         />
       </div>
     </div>
