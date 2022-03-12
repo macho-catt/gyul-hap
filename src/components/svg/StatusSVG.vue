@@ -10,7 +10,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div v-if="props.correct"><Correct class="correct" /></div>
+  <div v-if="props.correct">
+    <Correct class="correct" />
+  </div>
+
   <div v-if="!props.correct">
     <Incorrect class="incorrect" />
   </div>
