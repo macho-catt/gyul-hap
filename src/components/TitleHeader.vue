@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1 class="header">Hap! Gyul! Match 3</h1>
+  <h1 class="header">Gyul! Hap! Match 3</h1>
 </template>
 
 <style lang="postcss" scoped>
