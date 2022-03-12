@@ -41,7 +41,6 @@ npm run dev
 
 ## Todo
 
-- [ ] Add scoring system
 - [ ] Add help screen modal
 - [ ] Homepage to select play, help screen, or 1v1 (future feature)
 - [ ] Animations
