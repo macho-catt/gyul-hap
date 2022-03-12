@@ -21,8 +21,12 @@ provide('answerResult', answerResult);
 // State for player score
 const score = ref(0);
 
+// State for game end
+const gameEnd = ref(false);
+provide('gameEnd', gameEnd);
+
 const onSubmitClick = () => {
-  if (numOfTilesClicked.value === 3) {
+  if (!gameEnd.value && numOfTilesClicked.value === 3) {
     console.log(`submitted ${tilesClicked.value}`);
     const stringRep = numToString(...tilesClicked.value);
 
@@ -45,16 +49,17 @@ const onSubmitClick = () => {
     numOfTilesClicked.value = 0;
     isThreeClicked.value = false;
     clearTiles.value = true;
-  } else {
+  } else if (!gameEnd.value && numOfTilesClicked.value !== 3) {
     answerResult.value = 'You need to select three tiles to submit a match.';
   }
 };
 
 const onNoMatchesClick = () => {
-  if (answerCount.value === 0) {
+  if (!gameEnd.value && answerCount.value === 0) {
     answerResult.value = 'Correct! There are no more matches.';
     score.value += 3;
-  } else {
+    gameEnd.value = true;
+  } else if (!gameEnd.value && answerCount.value > 0) {
     answerResult.value = 'Wrong! Matches still remain.';
     if (score.value > 1) score.value -= 2;
     else if (score.value > 0) score.value -= 1;

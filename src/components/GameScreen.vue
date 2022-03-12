@@ -34,10 +34,23 @@ watch(answerResult, (curr) => {
 const closeModal = () => {
   showAnsModal.value = false;
 };
+
+const gameEnd = inject('gameEnd');
+const endScreen = ref(false);
+
+// Show end screen only when we reach gameEnd state and showAnsModal is closed
+watch([gameEnd, showAnsModal], ([currA, currB]) => {
+  if (currA && !currB) endScreen.value = true;
+});
+
+const handlePlayAgain = () => {
+  // change to vue router re-render when that is setup
+  window.location.reload();
+};
 </script>
 
 <template>
-  <div class="div-screen">
+  <div :class="endScreen ? 'div-screen-end' : 'div-screen'">
     <GameTile
       v-for="tile in props.gameTiles"
       :key="tile.idx"
@@ -56,11 +69,27 @@ const closeModal = () => {
       </div>
     </Dialog>
   </div>
+  <div v-if="endScreen" class="gameOver">
+    <h2 class="gameOver-h2">Game Over</h2>
+    <GameButton name="Play Again" @click="handlePlayAgain" variant="submit" />
+  </div>
 </template>
 
 <style lang="postcss" scoped>
 .div-screen {
   @apply grid w-fit grid-cols-3 gap-6 place-self-center rounded-md bg-slate-800 p-6 lg:gap-8 lg:p-8;
+}
+
+.div-screen-end {
+  @apply z-10 grid w-fit grid-cols-3 gap-6 place-self-center rounded-md bg-black p-6 opacity-50 lg:gap-8 lg:p-8;
+}
+
+.gameOver {
+  @apply fixed bottom-1/2 right-1/2 z-20 flex translate-x-1/2 translate-y-1/2 flex-col gap-4 rounded-md border bg-black p-5 lg:p-10;
+}
+
+.gameOver-h2 {
+  @apply text-2xl text-green-600 lg:text-6xl;
 }
 
 .div-title {

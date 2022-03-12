@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from '@vue/runtime-core';
+import { ref, inject, watch } from '@vue/runtime-core';
 
 const props = defineProps({
   name: {
@@ -14,10 +14,21 @@ const props = defineProps({
 });
 
 const buttonClass = ref(props.variant);
+const gameEnd = inject('gameEnd');
+
+const disableButton = ref('');
+
+watch(gameEnd, (curr) => {
+  if (curr) disableButton.value = 'cursor-not-allowed';
+});
 </script>
 
 <template>
-  <button :class="buttonClass" type="button" @click="props.click">
+  <button
+    :class="[buttonClass, disableButton]"
+    type="button"
+    @click="props.click"
+  >
     {{ props.name }}
   </button>
 </template>

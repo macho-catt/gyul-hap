@@ -10,8 +10,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div :class="props.correct ? '' : 'hide'"><Correct class="correct" /></div>
-  <div :class="props.correct ? 'hide' : ''">
+  <div v-if="props.correct"><Correct class="correct" /></div>
+  <div v-if="!props.correct">
     <Incorrect class="incorrect" />
   </div>
 </template>
