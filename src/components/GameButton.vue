@@ -38,7 +38,7 @@ watch(gameEnd, (curr) => {
 
 <style lang="postcss" scoped>
 .submit {
-  @apply h-16 w-16 place-self-center rounded-md border border-transparent bg-slate-100 text-sm text-slate-900 hover:bg-slate-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 lg:h-20 lg:w-20 lg:text-base;
+  @apply h-16 w-16 place-self-center rounded-md border border-transparent bg-slate-100 text-sm text-slate-900 hover:bg-slate-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 md:h-24 md:w-24 md:text-xl lg:h-20 lg:w-20 lg:text-base;
 }
 
 .modal {

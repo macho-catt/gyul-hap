@@ -85,11 +85,11 @@ watch([gameEnd, showAnsModal], ([currA, currB]) => {
 }
 
 .gameOver {
-  @apply fixed bottom-1/2 right-1/2 z-20 flex translate-x-1/2 translate-y-1/2 flex-col gap-4 rounded-md border bg-black p-5 lg:p-10;
+  @apply fixed bottom-1/2 right-1/2 z-20 flex translate-x-1/2 translate-y-1/2 flex-col gap-4 rounded-md border bg-black p-5 md:p-10;
 }
 
 .gameOver-h2 {
-  @apply text-2xl text-green-600 lg:text-6xl;
+  @apply text-2xl text-green-600 md:text-6xl;
 }
 
 .div-title {

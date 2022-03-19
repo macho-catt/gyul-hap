@@ -61,7 +61,7 @@ watch(clearTiles, (curr) => {
 
 <style lang="postcss" scoped>
 .div-tile {
-  @apply flex h-28 w-20 flex-col place-content-center rounded-md lg:h-48 lg:w-40 lg:hover:cursor-pointer lg:hover:opacity-50;
+  @apply flex h-28 w-20 flex-col place-content-center rounded-md md:h-56 md:w-52 lg:h-48 lg:w-40 lg:hover:cursor-pointer lg:hover:opacity-50;
 }
 
 .div-shape {
@@ -69,6 +69,6 @@ watch(clearTiles, (curr) => {
 }
 
 .h1 {
-  @apply place-self-center lg:text-lg;
+  @apply place-self-center md:text-2xl lg:text-lg;
 }
 </style>
