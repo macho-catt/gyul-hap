@@ -112,7 +112,7 @@ const handlePlayAgain = () => {
 
 <style lang="postcss">
 .board-container {
-  @apply flex flex-col gap-4 lg:grid lg:grid-cols-4 lg:gap-0;
+  @apply flex flex-col gap-4 lg:grid lg:grid-cols-5 lg:gap-0 xl:grid-cols-4;
 }
 
 .placeholder {
@@ -120,7 +120,7 @@ const handlePlayAgain = () => {
 }
 
 .main-board {
-  @apply order-2 col-span-2 flex flex-col gap-2 lg:order-2;
+  @apply order-2 flex flex-col gap-2 lg:order-2 lg:col-span-3 xl:col-span-2;
 }
 
 .button-container {

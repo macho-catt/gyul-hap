@@ -77,7 +77,7 @@ watch([gameEnd, showAnsModal], ([currA, currB]) => {
 
 <style lang="postcss" scoped>
 .div-screen {
-  @apply grid w-fit grid-cols-3 gap-6 place-self-center rounded-md bg-slate-800 p-6 lg:gap-8 lg:p-8;
+  @apply grid w-fit grid-cols-3 gap-6 place-self-center rounded-md bg-slate-800 p-6 lg:gap-10 lg:p-8;
 }
 
 .div-screen-end {
